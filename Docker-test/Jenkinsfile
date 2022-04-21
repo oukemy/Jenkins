@@ -5,14 +5,14 @@ pipeline {
         stage('Docker build') {
             steps {
                 script {
-                    sh "docker build -f Jenkins/Docker-test/Dockerfile -t oukemyjp/jenkinsBuildTest:1.0.0-${BUILD_ID} Docker_test"
+                    sh "docker build -f Jenkins/Docker-test/Dockerfile -t oukemyjp/jenkinsbuildtest:1.0.0-${BUILD_ID} Docker_test"
                 }
             }
         }
         stage('Docker push') {
             steps {
                 scripts {
-                    sh "docker push oukemyjp/jenkinsBuildTest:1.0.0-${BUILD_ID}"
+                    sh "docker push oukemyjp/jenkinsbuildtest:1.0.0-${BUILD_ID}"
                 }
             }
         }
