@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Docker build') {
+            steps {
+                script {
+                    sh "docker build -f Jenkins/Docker-test/Dockerfile -t oukemyjp/jenkinsBuildTest:1.0.0-${BUILD_ID} Docker_test"
+                }
+            }
+        }
+        stage('Docker push') {
+            steps {
+                scripts {
+                    sh "docker push oukemyjp/jenkinsBuildTest:1.0.0-${BUILD_ID}"
+                }
+            }
+        }
+    }
+}
