@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Docker push') {
             steps {
-                scripts {
+                script {
                     sh "docker push oukemyjp/jenkinsbuildtest:1.0.0-${BUILD_ID}"
                 }
             }
